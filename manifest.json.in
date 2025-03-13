@@ -15,7 +15,7 @@
                 "push-helper": "push/push.json"
             }
     },
-    "version": "@CLICK_VERSION@",
+    "version": "4.5.1",
     "maintainer": "Danfro <one@frostinfo.de>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
