@@ -1,0 +1,46 @@
+diff --git a/src/app/features/settings/general/General.tsx b/src/app/features/settings/general/General.tsx
+index 569cd41..93b209a 100644
+--- a/src/app/features/settings/general/General.tsx
++++ b/src/app/features/settings/general/General.tsx
+@@ -341,6 +341,33 @@ function Appearance() {
+   );
+ }
+ 
++function Gestures() {
++  const [enableBottomGesture, setEnableBottomGesture] = useSetting(settingsAtom, 'enableBottomGesture');
++  const [displayBottomGestureHint, setDisplayBottomGestureHint] = useSetting(settingsAtom, 'displayBottomGestureHint');
++
++  return (
++    <Box direction="Column" gap="100">
++      <Text size="L400">Gestures</Text>
++      <SequenceCard
++        className={SequenceCardStyle}
++        variant="SurfaceVariant"
++        direction="Column"
++        gap="400"
++      >
++        <SettingTile
++          title="Bottom Navigation Gesture"
++          description="Swipe left or right to navigate back and forward."
++          after={<Switch variant="Primary" value={enableBottomGesture} onChange={setEnableBottomGesture} />}
++        />
++        <SettingTile
++          title="Display visual hint"
++          after={<Switch variant="Primary" value={displayBottomGestureHint} onChange={setDisplayBottomGestureHint} />}
++        />
++      </SequenceCard>
++    </Box>
++  );
++}
++
+ function Editor() {
+   const [enterForNewline, setEnterForNewline] = useSetting(settingsAtom, 'enterForNewline');
+   const [isMarkdown, setIsMarkdown] = useSetting(settingsAtom, 'isMarkdown');
+@@ -621,6 +648,7 @@ export function General({ requestClose }: GeneralProps) {
+           <PageContent>
+             <Box direction="Column" gap="700">
+               <Appearance />
++              <Gestures />
+               <Editor />
+               <Messages />
+             </Box>

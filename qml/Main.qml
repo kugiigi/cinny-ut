@@ -172,6 +172,10 @@ MainView {
                 function setTheme(themeName) {
                     setCurrentTheme(themeName)
                 }
+
+                function test(value) {
+                    console.log("TEST: " + value)
+                }
             }
             WebEngineProfile {
                 id : webContext
